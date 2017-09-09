@@ -39,12 +39,12 @@
 
         var us = $("#usr").val();
         var pw = $("#pwd").val();
-        event.preventDefault();
+        event.preventDefault();   //its  a form
 
       request =  $.ajax({
           type: 'post',
           cache: false,
-          url: '/scott-projects/trocy-website-master/php/login_post.php',
+          url: '/trocy-website-master/php/login_post.php',
           data: {
             username: us,
             password: pw,
@@ -55,8 +55,6 @@
               console.log("works form submitted"+ result);
 
           }
-
-
         });
 
         request.done(function (response, txtStatus, jqXHR){
@@ -72,13 +70,8 @@
 
 
       });
-
-
-
-
-
-
-      $("form").submit(function(event){
+	  
+      $("form").submit(function(event){ //event, form can submit to own file once created so we wat to stop that
         console.log("form submit");
 
         var fn = $("#fname").val();
@@ -89,15 +82,15 @@
 
       //  alert(st+" this is st ");
         //alert(gn);
-        event.preventDefault();
+        event.preventDefault(); 
         var $form=$(this);
-        var datastring = {fname:"fn", lname:"ln", username:"us" ,email : "em", password : "pw"};
+       // var datastring = {fname:"fn", lname:"ln", username:"us" ,email : "em", password : "pw"};
         var serialize = $form.serialize();
         //alert('works1');
       request =  $.ajax({
-          type: 'post',
+          type: 'post',  //you put the data in the url,  
           cache: false,
-          url: '/scott-projects/trocy-website-master/php/signup_post.php',
+          url: '/trocy-website-master/php/signup_post.php', //location where you want to pass your form data to
           //data: serialize,
           data: {
             fname: fn,
@@ -117,7 +110,7 @@
         });
 
         request.done(function (response, txtStatus, jqXHR){
-          alert("Thank you");
+          alert("thank you");
 
           $form[0].reset();
         });
@@ -160,7 +153,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">About us</a></li>
             <li><a href="#">Sign Up</a></li>
-            <li><a href="#" data-toggle="modal" data-target="#login-modal">Log In</a></li>
+           <li><a href="#" data-toggle="modal" data-target="#login-modal">Log In</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 More <span class="caret"></span></a>
@@ -215,7 +208,7 @@
   <link rel="stylesheet" type="text/css" href="../css/signUp.css">
    <div id="login-section" class="container">
      <legend>Sign Up</legend>
-     	 <div class="innter-form">
+   	 <div class="innter-form">
        <form class="sa-innate-form" action="">
          <input type="text" id="fname" name="fname" placeholder="First Name">
          <input type="text" id="lname" name="lname" placeholder="Last Name">

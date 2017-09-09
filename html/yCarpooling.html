@@ -1,236 +1,94 @@
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="fb_admins_meta_tag" content="">
+  <meta name="description"
+    content="A student marketplace company where students will sell their products, and provide services">
+
+  <title>Trocy Home Page</title>
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Stylesheet -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
+  <script>
+     <?php
+        echo 'test45';
+   require_once('../php/mysqli_connect.php');
+   echo 'test45';
+   if($conn->connect_error){
+	   die("Connection failed: " . $conn->connect_error);
+   }
+   
+   //$sql="SELECT serviceName,day,time,description, picture,price FROM service";
+   //$result=$conn->($sql);
+
+   //$stmt = $conn->prepare("SELECT serviceName,day,time,description, picture,price FROM service
+	//VALUES (?,?,?,?,?)");
+	//$stmt->bind_param('sssss',$fname,$lname,$e,$username,$p);
+
+$sql = "SELECT departingTime,meetupLocation,tripDescription,cost FROM carpool";
+$result = $conn->query($sql);
+	
+    $output = '';
+	$output1 = '';
+	$output2 = '';
+	$output3 = '';
+	if ($result->num_rows > 0) {
+		echo 'test';
+		// output data of each row
+		
+		while($row = $result->fetch_assoc()) {
+		print_r($row);
+			//echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+			$output .= .$row['departingTime'];
+			$output1 .= .$row['meetupLocation'];
+			$output2 .= .$row['tripDescription'];
+			$output3 .=  .$row['cost'];
+			//echo 'test';
+		}
+	}
+	else{
+
+	}
+	//$stmt->close();
+	$conn->close(); 
+   ?>	 
+  </script>
   <head>
   <header>
   </header>
   <body>
-     <table>
-  <tr>
-     <td>
+       <div id = "carpooling.html">
+	   <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
+        <a href="" >Post a Service</a>
+     </div>
+    	 
         <div id ="cpInfo">
           <div id="picOfPerson">
               <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
           </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
           <div id ="Departing time">
-            <p>Departing time</p>
+            <?php echo $output; ?>
           </div>
           <div id="meetupLocation">
-             <p>Meet up location</p>
+            <?php echo $output1; ?>
           </div>
           <div id ="Trip description">
-             <p>cost</p>
+             <?php echo $output2; ?>
           </div>
           <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
+              <?php echo $output3; ?>
           </div>
         </div>
-           </td>
-          <td>
-            <div id ="cpInfo">
-          <div id="picOfPerson">
-              <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-          </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
-          <div id ="Departing time">
-            <p>Departing time</p>
-          </div>
-          <div id="meetupLocation">
-             <p>Meet up location</p>
-          </div>
-          <div id ="Trip description">
-             <p>cost</p>
-          </div>
-          <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
-          </div>
-        </div>
-          </td>
-          <td>
-            <div id ="cpInfo">
-          <div id="picOfPerson">
-              <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-          </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
-          <div id ="Departing time">
-            <p>Departing time</p>
-          </div>
-          <div id="meetupLocation">
-             <p>Meet up location</p>
-          </div>
-          <div id ="Trip description">
-             <p>cost</p>
-          </div>
-          <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
-          </div>
-        </div>
-            </td>
-            <td>
-            <div id ="cpInfo">
-          <div id="picOfPerson">
-              <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-          </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
-          <div id ="Departing time">
-            <p>Departing time</p>
-          </div>
-          <div id="meetupLocation">
-             <p>Meet up location</p>
-          </div>
-          <div id ="Trip description">
-             <p>cost</p>
-          </div>
-          <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
-          </div>
-        </div>
-            </td>
-            <td>
-            <div id ="cpInfo">
-          <div id="picOfPerson">
-              <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-          </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
-          <div id ="Departing time">
-            <p>Departing time</p>
-          </div>
-          <div id="meetupLocation">
-             <p>Meet up location</p>
-          </div>
-          <div id ="Trip description">
-             <p>cost</p>
-          </div>
-          <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
-          </div>
-        </div>
-            </td>
-          </tr>
-
-          <tr>
-     <td>
-        <div id ="cpInfo">
-          <div id="picOfPerson">
-              <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-          </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
-          <div id ="Departing time">
-            <p>Departing time</p>
-          </div>
-          <div id="meetupLocation">
-             <p>Meet up location</p>
-          </div>
-          <div id ="Trip description">
-             <p>cost</p>
-          </div>
-          <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
-          </div>
-        </div>
-           </td>
-          <td>
-            <div id ="cpInfo">
-          <div id="picOfPerson">
-              <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-          </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
-          <div id ="Departing time">
-            <p>Departing time</p>
-          </div>
-          <div id="meetupLocation">
-             <p>Meet up location</p>
-          </div>
-          <div id ="Trip description">
-             <p>cost</p>
-          </div>
-          <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
-          </div>
-        </div>
-          </td>
-          <td>
-            <div id ="cpInfo">
-          <div id="picOfPerson">
-              <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-          </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
-          <div id ="Departing time">
-            <p>Departing time</p>
-          </div>
-          <div id="meetupLocation">
-             <p>Meet up location</p>
-          </div>
-          <div id ="Trip description">
-             <p>cost</p>
-          </div>
-          <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
-          </div>
-        </div>
-            </td>
-            <td>
-            <div id ="cpInfo">
-          <div id="picOfPerson">
-              <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-          </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
-          <div id ="Departing time">
-            <p>Departing time</p>
-          </div>
-          <div id="meetupLocation">
-             <p>Meet up location</p>
-          </div>
-          <div id ="Trip description">
-             <p>cost</p>
-          </div>
-          <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
-          </div>
-        </div>
-            </td>
-            <td>
-            <div id ="cpInfo">
-          <div id="picOfPerson">
-              <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-          </div>
-          <div id ="Location">
-          	<p>Location</p>
-          </div>
-          <div id ="Departing time">
-            <p>Departing time</p>
-          </div>
-          <div id="meetupLocation">
-             <p>Meet up location</p>
-          </div>
-          <div id ="Trip description">
-             <p>cost</p>
-          </div>
-          <div id="jRide">
-               <a href="yCarpooling.html">Join Ride</a>
-          </div>
-        </div>
-            </td>
-          </tr>
-         </table>
+		
+		
+		 
   </body>
   <footer>
   </footer>

@@ -1,24 +1,90 @@
 <html>
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="fb_admins_meta_tag" content="">
+  <meta name="description"
+    content="A student marketplace company where students will sell their products, and provide services">
+  <meta name="author" content="Dat Tran/McKenzie Parents">
+  <meta name="keywords" content="student,marketplace,tutor,carpool,services">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="og:description" content=""/>
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
+  <title>Trocy Home Page</title>
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Stylesheet -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+   
+	
+	  $(document).ready(function(){
+      $(".form").submit(function(event){ //event, form can submit to own file once created so we wat to stop that
+        console.log("form submit");
+		
+      //  var departT = $("#departTime").val();
+      //  var meetupL = $("#meetUpLoc").val();
+      //  var tripD = $("#tripDes").val();
+      //  var price = $("#cost").val();
+	  
+	       //  alert(st+" this is st ");
+        //alert(gn);
+         event.preventDefault(); 
+	 request =  $.ajax({
+	   type: 'post',  //you put the data in the url,  
+          cache: false,
+		   url: '/trocy-website-master/html/carpoolingform.php', //location where you want to pass your form data to
+          //data: serialize,
+	     data: {
+            departT: $("#departTime").val(), 
+            meetUPL: $("#meetUpLoc").val(),
+            tripD: $("#tripDes").val(),
+            costs: $("#cost").val(),
+          }, success: function(result){
+            //alert('works-php');
+              console.log("works form submitted"+ result);
+          }
+	    }); 
+	
+	  /*               
+        var $form=$(this);
+       // var datastring = {fname:"fn", lname:"ln", username:"us" ,email : "em", password : "pw"};
+        var serialize = $form.serialize();
+        //alert('works1');
+	     */
+	   
+        request.fail(function (response, txtStatus, errorThrown){
+          alert(" Check log");
+          console.error("Entry Unsuccessful" + txtStatus, errorThrown);
+        });
+	   
+        request.done(function (response, txtStatus, jqXHR){
+          alert("thank you");
 
+        //  $form[0].reset();
+        });
+ 
+    });
+		   });
+   </script>
+ </head> 
+ <body>
 
-    <a href="home.html">Sign Out</a>
-<h1>Trocy</h1>
-<hr />
-<h2>Student Marketplace</h2>
-
-
-<!-- this page will change into another page and I will take this page into a form -->
-<ul>
- <li><a href="Profile.html">Profile</a></li>
-  <li><a href="servicesss.html">Services</a></li>
-   <li><a href="itemsss.html">Items</a></li>  
-   <li><a href="carpooling.html">Carpooling</a></li>  
-     <li><a href="trocyCommunity.html">Trocy Community</a></li>
-   <li><a href="About.html">About</a></li>
-    <li><a href="Contact.html">Contact</a></li>
-</ul
-
-
+<!--
  <img src="blank-profile-hi.jpg" alt="blank" style="width:304px;height:228px;">
  
 	<form action="/action_page.php" accept="image/gif; image/jpeg;">
@@ -30,29 +96,33 @@
  
   </form>
 
-
-    <form action="">
+ -->
+    <form class="form">
+	<!--
       <p>Location:
       	<br />
-      	<input type="text" name="location" size="15" maxlength="30"/>
+      	<input type="text"  id  name="location" size="15" maxlength="30"/>
        <br />
+	   
+	      -->
        Departing Time:
        <br />
-       <input type="text" name="departingTime" size="15" maxlength="30"/>
+       <input type="text" id = "departTime" name="departingTime" size="15" maxlength="30"/>
        <br/>
-       Meeting up location:
+       Meet up location:
        <br/>
-       <input type="text" name="meetup" size="15" maxlength="30"/>
+       <input type="text" id = "meetUpLoc" name="meetupLocation" size="15" maxlength="30"/>
        <br/>
        Trip description:
        <br/>
-       <input type="text" name="tripdescription" size="15" maxlength="30"/>
+       <input type="text" id = "tripDes" name="tripdescription" size="15" maxlength="30"/>
        <br/>
        Cost:
        <br/>
-       <input type="text" name="cost" size="15" maxlength="30"/>
+       <input type="text" id = "cost" name="cost" size="15" maxlength="30"/>
        </br>
        <input type="submit" value="Submit"/>
-
-
+</body>
+<footer>
+</footer>
 </html>

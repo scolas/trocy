@@ -1,5 +1,4 @@
 <html>
-
 <head> 
   <link rel="stylesheet" type="text/css" href="items.css">
   <meta charset="utf-8">
@@ -110,16 +109,7 @@
         });
 	  
 	  });
-	        });
-			 
-			 
-		 
-			
-			
-    
-    
-	
-	
+	        });	
 $sql = "SELECT departingTime,meetupLocation,tripDescription,cost FROM carpool";
 $result = $conn->query($sql);
 
@@ -132,7 +122,7 @@ $output = '';
 		print_r($row); 
 		$output .= '<ul><li>Departing time:'.$row['departingTime'].'</li><li> Meeting up location: '.$row['meetupLocation'].'</li> <li> Trip description: '.$row['tripDescription'].'</li></ul>';
 			 
-		} 
+		}file:///C:/xampp/htdocs/trocy-website-master/html/blank-profile-hi.jpg
 	}
 	else{
 
@@ -145,8 +135,6 @@ $output = '';
  */
 </script>  -->
 <script>
-
-
  	<?php 
 	
 	require_once('../php/mysqli_connect.php'); 
@@ -170,15 +158,7 @@ $output = '';
 
 <!-- this page will change into another page and I will take this page into a form -->
 <img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
-<div class = "carpoolList">
-<div class="outputDisplay">
-		   <div class="output2"><?php include 'servicesssF.php'; echo "$output"; ?></div>
-		   <button class = "rRide">request ride</button>
-		   <!--Person giving the service will click a buttton stating you have seen the person
-		    and one seen the person getting the service will confirm the service -->
-	       <button type= button class = "cRide">confrim ride</button>
-        </div>
- </div>
+<div class = "carpoolList"> </div>
             
 </body>
 <footer>
