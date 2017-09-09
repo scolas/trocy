@@ -1,56 +1,190 @@
 <html>
+<head>
+<title>Trocy</title>
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="fb_admins_meta_tag" content="">
+  <meta name="description"
+    content="A student marketplace company where students will sell their products, and provide services">
+  <meta name="author" content="Dat Tran/McKenzie Parents">
+  <meta name="keywords" content="student,marketplace,tutor,carpool,services">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="og:description" content=""/>
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
+  <title>Trocy Home Page</title>
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Stylesheet -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
   
-  <html>
+    <script>
+
+    $(document).ready(function(){
+       /* $("#login_btn").bind("click", function(){
+        console.log("login btn");
+
+        var us = $("#usr").val();
+        var pw = $("#pwd").val();
+        event.preventDefault();   //its  a form
+
+      request =  $.ajax({
+          type: 'post',
+          cache: false,
+          url: '/trocy-website-master/php/login_post.php',
+          data: {
+            username: us,
+            password: pw,
+
+          },
+          success: function(result){
+            //alert('works-php');
+              console.log("works form submitted"+ result);
+          }
+        });
+
+        request.done(function (response, txtStatus, jqXHR){
+          alert("Thank you");
+
+          //$form[0].reset();
+        });
+        request.fail(function (response, txtStatus, errorThrown){
+          alert(" Check log");
+          console.error("Entry Unsuccessful" + txtStatus, errorThrown);
+        });
+
+
+      });
+*/
+
+      $("form").submit(function(event){ //event, form can submit to own file once created so we wat to stop that
+        console.log("form submit");
+        /*
+        var picture = $("#pic").val();
+        var day = $("#day").val();
+        var description = $("#desc").val();
+        var times= $("#times").val();
+        var serviceN = $("#serviceName").val();
+		var price = $("#cost").val();
+            */
+      //  alert(st+" this is st ");
+        //alert(gn);
+        event.preventDefault(); 
+        var $form=$(this);
+       // var datastring = {fname:"fn", lname:"ln", username:"us" ,email : "em", password : "pw"};
+        var serialize = $form.serialize();
+        //alert('works1');
+        request =  $.ajax({
+          type: 'post',  //you put the data in the url,  
+          cache: false,
+          url: '/trocy-website-master/php/serviceform.php', //location where you want to pass your form data to
+          data: {
+		  /*
+             picture: pic,
+             days: day,
+             description: desc,
+              serviceN: serviceName,
+			  times:times,
+              costs: price,
+			  */
+			   picture: $('#pic').val(),
+                days: $('#day').val(),
+             description: $('#desc').val(),
+              serviceN: $('#serviceName').val(),
+			  times:$('#times').val(),
+              costs: $('#cost').val(),
+
+          },
+          success: function(result){
+           // alert('works-php');
+              console.log("works form submitted1"+ result);
+
+          }
+
+
+        });
+
+        request.done(function (response, txtStatus, jqXHR){
+          alert("Thanks");
+
+          $form[0].reset();
+        });
+
+        request.fail(function (response, txtStatus, errorThrown){
+          alert(" Check log");
+          console.error("Entry Unsuccessful" + txtStatus, errorThrown);
+        });
+
+
+      });
+    });
+
+  </script>
+  
+</head>
 
   <h1>Trocy</h1>
-<hr />
 <h2>Student Marketplace</h2>
 
-<img src="blank-profile-hi.jpg" alt="blank" style="width:304px;height:228px;">
-
-<form action="/action_page.php" accept="image/gif; image/jpeg;">
+<form action="" accept="image/gif; image/jpeg;">
   <br />
   upload image:
    <br />
-   <input type="file" name="pic" id="pic">
+    <input type="text" name="picture" id="pic">
    <br />
  
-  </form>
+     <p>
+	  <input type="text" name="serviceName"  id="serviceName">
+	 </p>
 
-  <form action = "">
     <p>
      Available Dates:
       <br/>
-      <input type="radio" name="genre" value="Mon" checked="checked"/> Monday
+      <input type="radio" name="genre" value="Monday" id="day" checked="checked"/> Monday
       <br/>
-      <input type="radio" name="genre" value="Mon" checked="checked"/> Tuesday
+      <input type="radio" name="genre" value="Tuesday" id="day" checked="checked"/> Tuesday
       <br/>
-      <input type="radio" name="genre" value="Mon" checked="checked"/> Wednesday
+      <input type="radio" name="genre" value="Wednesday" id="day" checked="checked"/> Wednesday
       <br/>
-      <input type="radio" name="genre" value="Mon" checked="checked"/> Thursday
+      <input type="radio" name="genre" value="Thurday" id="day" checked="checked"/> Thursday
       <br/>
-      <input type="radio" name="genre" value="Mon" checked="checked"/> Friday
+      <input type="radio" name="genre" value="Friday" id="day" checked="checked"/> Friday
       <br/>
-      <input type="radio" name="genre" value="Mon" checked="checked"/> Saturday
+      <input type="radio" name="genre" value="Saturday" id="day" checked="checked"/> Saturday
       <br/>
      </p>
-   </form>
 
-   <form action = "">
       <p> Avaliable times: 
          <br>
-         <input type= "text" name="username" size="15" maxlength ="30"/>
+         <input type= "text" name="atimes" id="times" size="15" maxlength ="30"/>
        </p>
-    </form>
+    
      
-   
     <p> Description</p>
-    <textarea rows ="4" cols="50" name="comment" form="usrform">
+    <textarea rows ="4" cols="50" name="comment" id ="desc" form="usrform">
     Service Description , Enter text here ...
     </textarea>
+	
+	<input type="text" name="price" id="cost">
 
 <br />
-  <input type = "submit" value ="Submit">
+
+  <button type="submit"> submit1 </button>
   <br />
+  </form>
   <a href="Profile.html">Profile</a>
 </html>

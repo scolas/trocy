@@ -1,7 +1,6 @@
 <html>
-
 <head> 
-  <link rel="stylesheet" type="text/css" href="items.css">
+ 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="fb_admins_meta_tag" content="">
@@ -31,9 +30,11 @@
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- <script>
- /*
- 
+   <script>
+              /*
+  
+	
+	 
   $(document).ready(function(){
        $(".rService").bind("click", function(){
         console.log("login btn");
@@ -74,13 +75,13 @@
       });
 	  
 	$(document).ready(function(){
-	   $(".cService").bind("click", function(){
-	            console.log("login btn");
-				    var rSer = 0; //$("#usr").val();
+	    $(".cService").bind("click", function(){
+	     console.log("login btn");
+		 var rSer = 0; //$("#usr").val();
          var aSer = 1; //$("#pwd").val();
-        event.preventDefault();   //its  a form
+         event.preventDefault();   //its  a form
 	  
-	   request =  $.ajax({
+	    request =  $.ajax({
           type: 'post',
           cache: false,
           url: '/trocy-website-master/php/service.php',
@@ -94,11 +95,9 @@
               console.log("works form submitted"+ result);
 
           }
-	   
-	   });
-	   
-	   
-        request.done(function (response, txtStatus, jqXHR){
+	    
+	     });
+           request.done(function (response, txtStatus, jqXHR){
           alert("Thank you");
 
           //$form[0].reset();
@@ -110,56 +109,10 @@
         });
 	  
 	  });
-	        });
-			 
-			 
-		 
+	        });	
 			
-			
-    
-    
-	
-	
-$sql = "SELECT departingTime,meetupLocation,tripDescription,cost FROM carpool";
-$result = $conn->query($sql);
-
-$output = '';
-	if ($result->num_rows > 0) {
-		echo 'test';
-		// output data of each row
-		while($row = $result->fetch_assoc()) {
-			//echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-		print_r($row); 
-		$output .= '<ul><li>Departing time:'.$row['departingTime'].'</li><li> Meeting up location: '.$row['meetupLocation'].'</li> <li> Trip description: '.$row['tripDescription'].'</li></ul>';
-			 
-		} 
-	}
-	else{
-
-	}
-
-
-	$stmt->close();
-
-	$conn->close(); 
- */
-</script>  -->
-<script>
-
-
- 	<?php 
-	
-	require_once('../php/mysqli_connect.php'); 
-
-
-
-
-
-
-
-	?>
-</script>
-
+	*/
+   </script>  
 </head>
 <div id = "headers"> 
 <header>
@@ -169,17 +122,17 @@ $output = '';
 <body>
 
 <!-- this page will change into another page and I will take this page into a form -->
-<img src="blank-profile-hi.jpg" alt="blank" style="width:128px;height:128px;">
+ 
 <div class = "carpoolList">
 <div class="outputDisplay">
-		   <div class="output2"><?php include 'servicesssF.php'; echo "$output"; ?></div>
+		  <div> <?php  include 'carpoolInfo.php'; echo "$output";?> </div>
+		   
 		   <button class = "rRide">request ride</button>
 		   <!--Person giving the service will click a buttton stating you have seen the person
 		    and one seen the person getting the service will confirm the service -->
 	       <button type= button class = "cRide">confrim ride</button>
         </div>
- </div>
-            
+ </div>            
 </body>
 <footer>
 </footer>

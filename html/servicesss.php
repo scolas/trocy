@@ -31,15 +31,67 @@
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script>
-    /*
-	$(document).ready(function(){
-      $(".rService").bind("click", function(){
-        console.log("login btn");
+  
+  /*
+   var fn = $("#fname").val();
+        var ln = $("#lname").val();
+		    fname: fn,
+            lname: ln,
+			*/
+    $(document).ready(function(){
+		 $(".rService").bind("click", function( event ){
+			   console.log("login btn");
+			   
+			       
+			      var rSer = 1 ;//$("#usr").val();
+                  var aSer = 0; //$("#pwd").val();
+				  event.preventDefault();   //its  a form
+				  
+				   request =  $.ajax({
+					   type: 'post',
+                       cache: false,
+					   
+					   url: '/trocy-website-master/php/service.php',
+                    data: {
+                       requestedSer: rSer,
+                       approvedSer: aSer,
 
-        var rSer = 1 //$("#usr").val();
-        var aSer = 0 //$("#pwd").val();
-        event.preventDefault();   //its  a form
+                     },
+		          success: function(result){
+                    //alert('works-php');
+                      console.log("works form submitted"+ result);
+                    }
+					
+					        
+					
+				   });
+				   
+				   
+		   request.done(function (response, txtStatus, jqXHR){
+              alert("Thank you");
 
+          //$form[0].reset();
+                });
+				
+				 request.fail(function (response, txtStatus, errorThrown){
+          alert(" Check log");
+          console.error("Entry Unsuccessful" + txtStatus, errorThrown);
+			 
+		   });
+		   
+		 
+		   
+	  });
+	  
+	     $(".cService").bind("click", function( event ){
+				 console.log("login btn");
+
+            var rSer = 0 //$("#usr").val();
+             var aSer = 1 //$("#pwd").val();
+             event.preventDefault();   //its  a form
+	 
+				
+		
       request =  $.ajax({
           type: 'post',
           cache: false,
@@ -53,9 +105,9 @@
             //alert('works-php');
               console.log("works form submitted"+ result);
           }
-        });
-
-        request.done(function (response, txtStatus, jqXHR){
+        });	
+		
+		 request.done(function (response, txtStatus, jqXHR){
           alert("Thank you");
 
           //$form[0].reset();
@@ -65,55 +117,17 @@
           alert(" Check log");
           console.error("Entry Unsuccessful" + txtStatus, errorThrown);
         });
-      });
-	
-	$(document).ready(function(){
-      $(".cService").bind("click", function(){
-        console.log("login btn");
-
-         var rSer = 0 //$("#usr").val();
-         var aSer = 1 //$("#pwd").val();
-        event.preventDefault();   //its  a form
-
-      request =  $.ajax({
-          type: 'post',
-          cache: false,
-          url: '/trocy-website-master/php/service.php',
-          data: {
-            requestedSer: rSer,
-            approvedSer: aSer,
-
-          },
-          success: function(result){
-            //alert('works-php');
-              console.log("works form submitted"+ result);
-          }
-        });
-
-        request.done(function (response, txtStatus, jqXHR){
-          alert("Thank you");
-
-          //$form[0].reset();
-        });
-
-        request.fail(function (response, txtStatus, errorThrown){
-          alert(" Check log");
-          console.error("Entry Unsuccessful" + txtStatus, errorThrown);
-        });
-      });
-	       });
-		   // include 'servicesssF.php'; echo "$output";
-	
- 
-  */
+		 });		
+	  
+	});
    </script>
 </head>
 <body>
 <h3>Services</h3>
- <?php echo "hello world"; ?>
+ 
          <div class="outputDisplay">
-		   <div class="output2"></div>
-		   <button type = button class = "rService">request service</button>
+		   <div class="output2"><?php include 'servicesssF.php'; echo "$output"; ?></div>
+		   <button class = "rService">request service</button>
 		   <!--Person giving the service will click a buttton stating you have seen the person
 		    and one seen the person getting the service will confirm the service -->
 	       <button type= button class = "cService">confrim service</button>
