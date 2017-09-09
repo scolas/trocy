@@ -1,0 +1,67 @@
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+    console.log( "ready!" );
+    $.ajax({
+      url: "/scott-projects/trocy-website-master/php/it1.php",
+      type: "get",
+      dataType: "json",
+      data: {'action': 'work'},
+    success: function(data) {
+    var count = 1;
+  //$(".output").append('<tr>');
+    $.each( data, function( key, value ) {
+      //console.log( key + ": " + value.id + value.name + value.price + value.description );
+
+        if(count == 4){
+          $(".output").append('<div id="item" style="margin:10px;border:1px solid black;display: inline-block;"><div id="i_img"><img src="blank-profile-hi.jpg" alt="blank" style="width:128px; height:128px; "></div><div id="item_name"><a href="javascript;:" style="text-decoration:none; padding:5px;">'+value.name+'</a></div><div id="item_price" style="padding:5px;">$'+value.price+'</div></div>');
+          $(".output").append('<br>');
+          count = 1;
+        }
+        else{
+          $(".output").append('<div id="item" style="margin:10px; border:1px solid black;display: inline-block;"><div id="i_img"><img src="blank-profile-hi.jpg" alt="blank" style="width:128px; height:128px; "></div><div id="item_name"><a href="javascript;:" style="text-decoration:none; padding:5px;">'+value.name+'</a></div><div id="item_price" style="padding:5px;">$'+value.price+'</div></div>');
+          count++;
+        }
+      console.log(count);
+
+    });
+
+
+  },
+  error: function(xhr, desc, err) {
+    console.log(xhr);
+    console.log("Details: " + desc + "\nError:" + err);
+  }
+}); // end ajax call
+
+});
+</script>
+</head>
+<a href="home.html">Sign Out</a>
+<h1>Trocy</h1>
+<hr />
+<h2>Student Marketplace</h2>
+
+
+<ul>
+ <li><a href="Profile.html">Profile</a></li>
+  <li><a href="servicesss.html">Services</a></li>
+ <li><a href="itemsss.html">Items</a></li>
+  <li><a href="carpooling.html">Carpooling</a></li>
+  <li><a href="trocyCommunity.html">Trocy Community</a></li>
+   <li><a href="About.html">About</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+</ul>
+
+<h3>Item</h3>
+<div class="output"></div>
+
+
+
+
+
+
+
+</html>

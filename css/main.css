@@ -1,0 +1,73 @@
+ /******************
+ GENERAL
+ ****************/
+#header {
+  width:100%;
+  background-color:#267a9b;
+}
+html{
+	background-color: #EEE;
+}
+div {
+    display: block;
+}
+a{
+	text-decoration: none;
+}
+#main-logo{
+	position:relative;
+	background-color: inherit;
+	text-align: left;
+	font-size: 20px;
+	padding:0;
+	margin:0;
+}
+#logo{
+	background-color: inherit;
+	float:left;
+	mad-width:20%;
+	padding: 0;
+	margin: 0;
+}
+#navbar-main{
+	float:right;
+	width:80%;
+	padding: 4px;
+}
+ul{
+	align-self: stretch;
+		background-color: #267a9b;
+	 list-style-type:none;
+	 overflow: hidden;
+	 margin: 0;
+   padding: 0;
+	 width: 100%;
+}
+li {
+    float: right;
+}
+li a {
+    display: block;
+		color:#111111;
+		text-align: left;
+		text-decoration: none;
+		font-weight: bold;
+		padding-top: 10px;
+		margin-left: 12px;
+		border-left-style: dotted;
+		border-left: white;
+		/*margin:3px;*/
+		font-size: 18px;
+}
+li a:hover{
+	color: #444444;
+	border-style: dashed;
+	border: 0;
+	margin: 2px;
+	border-bottom-color: #267f9b;
+	background-color: #EEE;
+}
+.sign-up{
+	background-color: #267f9d;
+	color:#ABCDEF;
+}

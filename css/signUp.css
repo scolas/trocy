@@ -1,0 +1,58 @@
+/*Source: https://bootsnipp.com/snippets/vORj6*/
+.sa-innate-form input[type=text], input[type=password], input[type=file], textarea, select, email{
+
+  font-size:13px;
+  padding:10px;
+  border:1px solid#ccc;
+  outline:none;
+  width:100%;
+  margin: 2% 0;
+}
+.sa-innate-form input[type=submit]{
+    border:1px solid#267a9b;
+    background:#267a9b;
+    color:#fff;
+    padding:10px 25px;
+    font-size:14px;
+    margin-top:5px;
+  }
+  .sa-innate-form input[type=submit]:hover{
+    border:1px solid#267a9b;
+    background:#267a9b;
+    color:#fff;
+  }
+
+  .sa-innate-form button{
+    background:#267a9b;
+    color:#fff;
+    padding:10px 25px;
+    font-size:14px;
+    margin-top:1% auto;
+  }
+  .sa-innate-form button:hover{
+    box-shadow:3px 3px #db3b2b;
+    background:#db3b2b;
+    color:#fff;
+  }
+  .sa-innate-form p{
+      font-size:13px;
+      padding-top:10px;
+  }
+  .social-login{
+    text-align:center;
+    font-size:12px;
+  }
+  .social-login p{
+    margin:15px 0;
+  }
+
+
+  #login-section{
+    width:600px;
+  }
+
+@media (max-width:600px){
+  #login-section{
+    width:100%;
+  }
+}
