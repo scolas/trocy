@@ -4,7 +4,8 @@ $user = 'root';
 $password = '';
 $db = 'trocy';
 
-$conn = new mysqli('localhost:82', $user, $password, $db) or die('unable to connect');
+echo 'test';
+$conn = new mysqli('localhost', $user, $password, $db) or die('unable to connect');
 
 return $conn;
 }
